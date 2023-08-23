@@ -1,5 +1,5 @@
-#1. Create an account at ClickSend.com
-2. Create a Python script and add your ClickSend credentials
+# 1. Create an account at ClickSend.com
+# 2. Create a Python script and add your ClickSend credentials
 
 # -*- coding: utf-8 -*-
 
@@ -18,7 +18,7 @@ p = subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.PIPE,shell=Tru
 print output
 
 
-3. Connect to the Raspberry Pi via SSH/PuTTY (Raspberry pi must be connected to the Internet) https://raspberrypi4dummies.wordpress.com/2013/03/17/connect-to-the-raspberry-pi-via-ssh-putty/
-4. Copy script clicksend.py from your windows PC to your Raspberry Pi. (../home/pi) 
-5. Start script clicksend.py with your parameters: python clicksend.py
-6. Done! Your SMS should’ve been sent by now.
+# 3. Connect to the Raspberry Pi via SSH/PuTTY (Raspberry pi must be connected to the Internet) https://raspberrypi4dummies.wordpress.com/2013/03/17/connect-to-the-raspberry-pi-via-ssh-putty/
+# 4. Copy script clicksend.py from your windows PC to your Raspberry Pi. (../home/pi) 
+# 5. Start script clicksend.py with your parameters: python clicksend.py
+# 6. Done! Your SMS should’ve been sent by now.
