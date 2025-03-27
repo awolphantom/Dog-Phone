@@ -1,0 +1,36 @@
+import keyboard
+from twilio.rest import Client
+
+# Twilio credentials
+account_sid = 'your_account_sid'
+auth_token = 'your_auth_token'
+twilio_phone_number = 'your_twilio_phone_number'
+recipient_phone_number = 'recipient_phone_number'
+
+# Initialize Twilio client
+client = Client(account_sid, auth_token)
+
+#set up emergency message suggetion is name, location, and explination this is sent by a dog
+
+def send_sms():
+    try:
+        # Send SMS message Change from and to with appropriate numbers
+        message = client.messages.create(
+            body="Hello, this is an emergency alert sent by Brittany's Service dog, this may be due to an unresponsive episode. this phone is located at 123 magic st please do not respond to this message and send or confirm if immediate help is needed",
+            from_=twilio_phone_number,
+            to=recipient_phone_number
+        )
+        
+# error out message 
+        print(f"SMS sent successfully. SID: {message.sid}")
+    except Exception as e:
+        print(f"Failed to send SMS. Error: {str(e)}")
+
+# Register the hotkey (e.g., F9 key)
+keyboard.add_hotkey('F9', send_sms)
+
+print("Press F9 to send an SMS. Press Ctrl+C to exit.")
+
+# Block the program from exiting, only exit for reboot fail purpose needs to be done manually
+
+keyboard.wait('ctrl+c')

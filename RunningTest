@@ -1,0 +1,39 @@
+python
+import requests
+from twilio.rest import Client
+
+def send_sms(message, phone_number):
+    account_sid = 'your_account_sid'
+    auth_token = 'your_auth_token'
+    client = Client(account_sid, auth_token)
+
+    message = client.messages.create(
+        body=message,
+        from_='your_twilio_phone_number',
+        to=phone_number
+    )
+
+    print(f"SMS sent to {phone_number}")
+
+def make_call(phone_number):
+    account_sid = 'your_account_sid'
+    auth_token = 'your_auth_token'
+    client = Client(account_sid, auth_token)
+
+    call = client.calls.create(
+        url='http://demo.twilio.com/docs/voice.xml',
+        to=phone_number,
+        from_='your_twilio_phone_number'
+    )
+
+    print(f"Call made to {phone_number}")
+
+def main():
+    phone_number = input("Enter the phone number: ")
+    message = input("Enter the message: ")
+
+    send_sms(message, phone_number)
+    make_call(phone_number)
+
+if __name__ == "__main__":
+    main()
